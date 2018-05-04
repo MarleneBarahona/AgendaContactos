@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".info_contacto">
+
+    <ImageView
+        android:id="@+id/img_contacto_id"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/icono_contacto"/>
+    <TextView
+        android:id="@+id/tv_nombre_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:gravity="left"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:layout_below="@id/img_contacto_id"/>
+    <TextView
+        android:id="@+id/tv_telefono_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:padding="16dp"
+        android:textSize="18dp"
+        android:layout_below="@id/tv_nombre_id"/>
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:padding="16dp"
+        android:src="@drawable/icono_llamar"
+        android:scaleType="centerInside"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>
