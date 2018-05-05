@@ -8,7 +8,8 @@
     <ImageView
         android:id="@+id/img_contacto_id"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
+        android:padding="8dp"
         android:src="@drawable/icono_contacto"/>
     <TextView
         android:id="@+id/tv_nombre_id"
@@ -17,22 +18,39 @@
         android:text="Nombre"
         android:gravity="left"
         android:padding="16dp"
-        android:textSize="18sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_below="@id/img_contacto_id"/>
+    <LinearLayout
+        android:id="@+id/Ly_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_nombre_id">
+        <TextView
+            android:id="@+id/tv_telefono_id"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Telefono"
+            android:padding="16dp"
+            android:textSize="20dp"
+            android:layout_below="@id/tv_nombre_id"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/icono_llamar"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
     <TextView
-        android:id="@+id/tv_telefono_id"
+        android:id="@+id/tv_telefono2_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Telefono"
         android:padding="16dp"
-        android:textSize="18dp"
-        android:layout_below="@id/tv_nombre_id"/>
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:padding="16dp"
-        android:src="@drawable/icono_llamar"
-        android:scaleType="centerInside"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:textSize="20dp"
+        android:layout_below="@id/Ly_id"/>
 </RelativeLayout>

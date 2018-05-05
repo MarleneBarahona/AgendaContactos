@@ -4,6 +4,7 @@ public class Contacto {
     private String nombre;
     private String telefono;
     private int thumbnail;
+    private boolean fav;
 
     public Contacto() {
     }
@@ -12,6 +13,7 @@ public class Contacto {
         this.nombre = nombre;
         this.telefono = telefono;
         this.thumbnail = thumbnail;
+        fav = false;
     }
 
     public String getNombre() {
@@ -36,5 +38,21 @@ public class Contacto {
 
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public void set(boolean fav ){
+        this.fav = fav;
+    }
+
+    public void setTrue(){ fav = true;}
+
+    public void setFalse(){ fav = false;}
+
+    public boolean verificarFav(){
+        return fav;
+    }
+
+    public boolean yesorno(){
+        return fav;
     }
 }

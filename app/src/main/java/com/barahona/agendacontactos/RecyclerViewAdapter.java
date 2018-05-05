@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context mCtx;
     private List<Contacto> mDatos;
+    private boolean favi;
 
     public RecyclerViewAdapter(Context mCtx, List<Contacto> mDatos) {
         this.mCtx = mCtx;
@@ -31,10 +34,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         holder.tv_book_title.setText(mDatos.get(position).getNombre());
         holder.img_book_thumbnail.setImageResource(mDatos.get(position).getThumbnail());
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +48,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 mCtx.startActivity(intent);
             }
         });
+
+        if(mDatos.get(position).yesorno()){
+            holder.fav.setImageResource(R.drawable.starfav);
+        }else {
+            holder.fav.setImageResource(R.drawable.estrella_gris);
+        }
+        holder.fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (favContact(position)){
+                    holder.fav.setImageResource(R.drawable.starfav);
+                    ((MainActivity)mCtx).addFavs(mDatos.get(position));
+                }else {
+                    holder.fav.setImageResource(R.drawable.estrella_gris);
+                    ((MainActivity)mCtx).eraseFavourite(mDatos.get(position).getNombre());
+                }
+            }
+            }
+        );
+
+        /*holder.bttn_favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
     }
 
     @Override
@@ -52,16 +82,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
+        Button bttn_contacts, bttn_favorites;
         TextView tv_book_title;
         ImageView img_book_thumbnail;
         CardView cardView;
+        ImageButton fav;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
+            bttn_contacts = (Button) itemView.findViewById(R.id.bttn_contactos);
+            bttn_favorites = (Button) itemView.findViewById(R.id.bttn_favs);
             tv_book_title = (TextView) itemView.findViewById(R.id.book_title_id);
             img_book_thumbnail = (ImageView) itemView.findViewById(R.id.book_img_id);
             cardView = (CardView) itemView.findViewById(R.id.cardview_id);
+            fav = (ImageButton) itemView.findViewById(R.id.imgbttn_fav_id);
         }
     }
+
+    public boolean favContact(int position){
+        mDatos.get(position).set(!mDatos.get(position).verificarFav());
+        return mDatos.get(position).verificarFav();
+    }
+    public boolean veriFavo(){
+        return favi;
+    }
 }
+

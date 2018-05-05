@@ -23,4 +23,8 @@ public class info_contacto extends AppCompatActivity {
         tv_nombre.setText(nombre);
         tv_telefono.setText(telefono);
     }
+    /*
+    METER EL ONCLICK PARA CUANDO LE DEN EN FAV
+    HOLDER.BOTONFAV.BLAH
+    */
 }

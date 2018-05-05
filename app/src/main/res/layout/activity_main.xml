@@ -5,9 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:padding="8dp">
-
+    android:paddingBottom="8dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bttn_contactos"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="CONTACTOS"
+            android:onClick="homebtn"/>
+        <Button
+            android:id="@+id/bttn_favs"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="FAVS"
+            android:onClick="favbtn"/>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
+        android:scrollbars="vertical"
+        android:padding="8dp"
         android:id="@+id/Recyclerview_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
