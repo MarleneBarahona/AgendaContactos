@@ -3,7 +3,8 @@
     package="com.barahona.agendacontactos">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />/>
+
 
     <application
         android:allowBackup="true"

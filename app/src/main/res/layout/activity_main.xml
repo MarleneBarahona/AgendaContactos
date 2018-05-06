@@ -15,6 +15,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="centerInside"
+            android:onClick="addbtn"
             android:src="@drawable/icono_agregar_alv" />
         <Button
             android:id="@+id/bttn_contactos"
@@ -35,6 +36,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="centerInside"
+            android:onClick="buscarbtn"
             android:src="@drawable/icono_buscar"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

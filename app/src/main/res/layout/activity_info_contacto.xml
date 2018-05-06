@@ -37,6 +37,7 @@
             android:layout_below="@id/tv_nombre_id"/>
 
         <ImageButton
+            android:id="@+id/imgbttn_llamar_id"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="60dp"

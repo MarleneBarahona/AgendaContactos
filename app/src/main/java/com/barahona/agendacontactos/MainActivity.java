@@ -1,7 +1,9 @@
 package com.barahona.agendacontactos;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.ContactsContract;
@@ -19,7 +21,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     RecyclerView myrv;
     RecyclerViewAdapter myAdapter;
-    List<Contacto> listContact, favos;
+    List<Contacto> listContact, favos, buscados;
     Cursor c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listContact = new ArrayList<>();
         favos = new ArrayList<>();
+        buscados = new ArrayList<>();
 
-        listContact.add(new Contacto("Pedrito Mengano","77777-7777",R.drawable.icono_contacto));
+
+        listContact.add(new Contacto("Isabel Barahona","79676777",R.drawable.icono_contacto));
+        listContact.add(new Contacto("Pedrito Mengano","77886819",R.drawable.icono_contacto));
         listContact.add(new Contacto("Maria Hernandez","7888-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Raul Murillo","7689-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Equis","77777-0000", R.drawable.icono_contacto));
@@ -61,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         if (myAdapter.veriFavo()){
             myAdapter = new RecyclerViewAdapter((Context) favos, listContact);
             myrv.setAdapter(myAdapter);
-
         }
     }
 
@@ -80,7 +84,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addbtn(View v){
+        myAdapter = new RecyclerViewAdapter(v.getContext(), favos);
+        myrv.setAdapter(myAdapter);
+        //Intent intent = new Intent(v.getContext(), agregar_contacto.class);
+        //this.startActivity(intent);
+    }
 
+    public void buscarbtn(View v){
+
+        myAdapter = new RecyclerViewAdapter(v.getContext(), buscados);
+        myrv.setAdapter(myAdapter);
     }
     /*private void Meto(){
         c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.Contacts.DISPLAY_NAME + "ASC");
