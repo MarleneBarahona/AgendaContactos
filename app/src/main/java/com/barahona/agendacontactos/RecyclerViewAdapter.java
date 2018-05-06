@@ -128,4 +128,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public boolean veriFavo(){
         return favi;
     }
+
+
+    public void filterList(List<Contacto> filteredList) {
+        mDatos = filteredList;
+        notifyDataSetChanged();
+
+    }
 }

@@ -54,4 +54,13 @@
         android:padding="16dp"
         android:textSize="20dp"
         android:layout_below="@id/Ly_id"/>
+    <ImageButton
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/icono_compartir"
+        android:scaleType="centerCrop"
+        android:padding="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>
