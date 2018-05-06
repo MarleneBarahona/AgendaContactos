@@ -38,7 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.tv_book_title.setText(mDatos.get(position).getNombre());
         holder.img_book_thumbnail.setImageResource(mDatos.get(position).getThumbnail());
-
+        //dandole funcion a las cardview para motrar la info de cada contacto
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,31 +49,46 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
+        /*holder.bttn_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mCtx.getApplicationContext(), agregar_contacto.class);
+                mCtx.startActivity(intent);
+            }
+        });*/
+        /*holder.bttn_buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mCtx, info_contacto.class);
+                intent.putExtra("Nombre", mDatos.get(position).getNombre());
+                intent.putExtra("Telefono", mDatos.get(position).getTelefono());
+                mCtx.startActivity(intent);
+            }
+        });*/
+
+        //si esta en favs pone la estrellita amarilla
         if(mDatos.get(position).yesorno()){
             holder.fav.setImageResource(R.drawable.starfav);
         }else {
+            //si no, pone la estrella sin color
             holder.fav.setImageResource(R.drawable.estrella_gris);
         }
+        //dandole funcion al boton de favs
         holder.fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //al dar click al boton de estrella gris cambia a amarilla y lo agrega a favs
                 if (favContact(position)){
                     holder.fav.setImageResource(R.drawable.starfav);
                     ((MainActivity)mCtx).addFavs(mDatos.get(position));
                 }else {
+                    //al dar click al boton de estrella gris cambia a amarilla y lo elimina de favs
                     holder.fav.setImageResource(R.drawable.estrella_gris);
                     ((MainActivity)mCtx).eraseFavourite(mDatos.get(position).getNombre());
                 }
             }
             }
         );
-
-        /*holder.bttn_favorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
     }
 
     @Override
@@ -82,6 +97,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
+        ImageButton bttn_agregar, bttn_buscar;
         Button bttn_contacts, bttn_favorites;
         TextView tv_book_title;
         ImageView img_book_thumbnail;
@@ -90,7 +106,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public MyViewHolder(View itemView) {
             super(itemView);
-
+            bttn_agregar = (ImageButton) itemView.findViewById(R.id.imgbttn_agregar_id);
+            bttn_buscar = (ImageButton) itemView.findViewById(R.id.imgbttn_buscar_id);
             bttn_contacts = (Button) itemView.findViewById(R.id.bttn_contactos);
             bttn_favorites = (Button) itemView.findViewById(R.id.bttn_favs);
             tv_book_title = (TextView) itemView.findViewById(R.id.book_title_id);
@@ -108,4 +125,3 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return favi;
     }
 }
-

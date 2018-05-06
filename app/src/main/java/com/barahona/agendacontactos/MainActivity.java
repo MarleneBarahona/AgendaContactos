@@ -28,13 +28,6 @@ public class MainActivity extends AppCompatActivity {
         listContact = new ArrayList<>();
         favos = new ArrayList<>();
 
-        /*int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
-        if(permission == PackageManager.PERMISSION_GRANTED){
-            Meto();
-        }else{
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},);
-        }*/
-
         listContact.add(new Contacto("Pedrito Mengano","77777-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Maria Hernandez","7888-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Raul Murillo","7689-7777",R.drawable.icono_contacto));
@@ -53,28 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public void addFavs(Contacto favo){
         favos.add(favo);
     }
-    /*public void quitar(String GameName){
-        int i=0;
-
-        for(Contacto con : favos){
-            if(con.getNombre() == GameName){
-                break;
-            }
-
-            i++;
-        }
-        favos.remove(i);
-        if(myAdapter.()){
-            myAdapter = new ContactsAdapter(favos, this) {
-                @Override
-                public void onClickCard(Contacts contacts) {
-                    //pasando la informacion a la actividad
-                    intents(contacts);
-                }
-            };
-            myrv.setAdapter(myAdapter);
-        }
-    }*/
 
     public void eraseFavourite(String name) {
         int contador = 0;
@@ -93,17 +64,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    //Para muestrar todos los contactos
     public void homebtn(View v){
 
         myAdapter = new RecyclerViewAdapter(v.getContext(), listContact);
         myrv.setAdapter(myAdapter);
     }
+
+    //Para muestrar solo los favs
     public void favbtn(View v){
 
         myAdapter = new RecyclerViewAdapter(v.getContext(), favos);
         myrv.setAdapter(myAdapter);
     }
 
+    public void addbtn(View v){
+
+    }
     /*private void Meto(){
         c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.Contacts.DISPLAY_NAME + "ASC");
         //listContact = new ArrayList<String>();

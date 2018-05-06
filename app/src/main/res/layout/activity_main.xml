@@ -10,6 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/imgbttn_agregar_id"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icono_agregar_alv" />
         <Button
             android:id="@+id/bttn_contactos"
             android:layout_width="0dp"
@@ -24,6 +30,12 @@
             android:layout_height="wrap_content"
             android:text="FAVS"
             android:onClick="favbtn"/>
+        <ImageButton
+            android:id="@+id/imgbttn_buscar_id"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icono_buscar"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:scrollbars="vertical"
@@ -31,6 +43,5 @@
         android:id="@+id/Recyclerview_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>
