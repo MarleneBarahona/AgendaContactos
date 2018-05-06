@@ -13,13 +13,13 @@
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:hint="Pedrito Hernadez"
+            android:hint="@string/ejemplo_nombre_contacto"
             tools:ignore="Suspicious0dp" />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="BUSCAR"/>
+            android:text="@string/bttn_buscar"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:scrollbars="vertical"

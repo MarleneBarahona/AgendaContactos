@@ -31,7 +31,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
-                android:text="Nombre"
+                android:text="@string/text_nombre"
                 android:gravity="center_vertical"/>
             <ImageButton
                 android:id="@+id/imgbttn_fav_id"

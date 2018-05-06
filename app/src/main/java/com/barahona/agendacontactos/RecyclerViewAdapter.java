@@ -26,10 +26,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mCtx = mCtx;
         this.mDatos = mDatos;
     }
-    public RecyclerViewAdapter(Context mCtx, Activity activity){
-        this.mCtx = mCtx;
-        this.activity = activity;
-    }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -49,8 +45,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mCtx, info_contacto.class);
-                //intent.putExtra("Nombre", mDatos.get(position).getNombre());
-                //intent.putExtra("Telefono", mDatos.get(position).getTelefono());
+                intent.putExtra("Nombre", mDatos.get(position).getNombre());
+                intent.putExtra("Telefono", mDatos.get(position).getTelefono());
                 mCtx.startActivity(intent);
             }
         });

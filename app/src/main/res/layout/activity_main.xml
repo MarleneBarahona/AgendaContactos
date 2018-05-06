@@ -22,14 +22,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="CONTACTOS"
+            android:text="@string/text_contactos"
             android:onClick="homebtn"/>
         <Button
             android:id="@+id/bttn_favs"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="FAVS"
+            android:text="@string/text_favs"
             android:onClick="favbtn"/>
         <ImageButton
             android:id="@+id/imgbttn_buscar_id"
