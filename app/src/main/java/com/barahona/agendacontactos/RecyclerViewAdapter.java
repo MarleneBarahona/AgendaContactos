@@ -1,6 +1,5 @@
 package com.barahona.agendacontactos;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -20,7 +19,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context mCtx;
     private List<Contacto> mDatos;
     private boolean favi;
-    private Activity activity;
 
     public RecyclerViewAdapter(Context mCtx, List<Contacto> mDatos) {
         this.mCtx = mCtx;
@@ -38,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
-        holder.tv_book_title.setText(mDatos.get(position).getNombre());
+        holder.tv_contact_title.setText(mDatos.get(position).getNombre());
         holder.img_book_thumbnail.setImageResource(mDatos.get(position).getThumbnail());
         //dandole funcion a las cardview para motrar la info de cada contacto
         holder.cardViewContact.setOnClickListener(new View.OnClickListener() {
@@ -55,15 +53,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mCtx, agregar_contacto.class);
-                mCtx.startActivity(intent);
-            }
-        });*/
-        /*holder.bttn_buscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mCtx, info_contacto.class);
-                intent.putExtra("Nombre", mDatos.get(position).getNombre());
-                intent.putExtra("Telefono", mDatos.get(position).getTelefono());
                 mCtx.startActivity(intent);
             }
         });*/
@@ -101,7 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageButton bttn_agregar, bttn_buscar;
         Button bttn_contacts, bttn_favorites;
-        TextView tv_book_title;
+        TextView tv_contact_title;
         ImageView img_book_thumbnail;
         CardView cardViewContact;
         ImageButton fav;
@@ -113,8 +102,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             bttn_buscar = (ImageButton) itemView.findViewById(R.id.imgbttn_buscar_id);
             bttn_contacts = (Button) itemView.findViewById(R.id.bttn_contactos);
             bttn_favorites = (Button) itemView.findViewById(R.id.bttn_favs);
-            tv_book_title = (TextView) itemView.findViewById(R.id.book_title_id);
-            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.book_img_id);
+            tv_contact_title = (TextView) itemView.findViewById(R.id.nombre_contacto_id);
+            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.contact_img_id);
             cardViewContact = (CardView) itemView.findViewById(R.id.cardview_id);
             fav = (ImageButton) itemView.findViewById(R.id.imgbttn_fav_id);
             cardViewAgregar = (CardView) itemView.findViewById(R.id.cardview_add_id);

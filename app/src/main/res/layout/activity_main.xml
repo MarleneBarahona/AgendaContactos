@@ -43,8 +43,7 @@
         android:id="@+id/filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:onClick=""/>
+        android:enabled="false" />
     <android.support.v7.widget.RecyclerView
         android:scrollbars="vertical"
         android:layout_margin="16dp"

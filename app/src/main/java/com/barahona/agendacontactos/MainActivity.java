@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerViewAdapter myAdapter;
     List<Contacto> listContact, favos, buscados;
     Cursor c;
+    Contacto addedit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,13 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
         listContact.add(new Contacto("Isabel Barahona","79676777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Marlene Barahona","77886819",R.drawable.icono_contacto));
+        listContact.add(new Contacto("Alam Brito","77777-0000", R.drawable.icono_contacto));
         listContact.add(new Contacto("Maria Hernandez","7888-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Raul Murillo","7689-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Equis","77777-0000", R.drawable.icono_contacto));
         listContact.add(new Contacto("Jose Martinez","77777-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Temperance Brennan","7888-7777",R.drawable.icono_contacto));
         listContact.add(new Contacto("Pedrito Mengano","7689-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Alam Brito","77777-0000", R.drawable.icono_contacto));
+        listContact.add(new Contacto("Pompai","77777-0000", R.drawable.icono_contacto));
+
 
         myrv = (RecyclerView) findViewById(R.id.Recyclerview_id);
         myAdapter = new RecyclerViewAdapter(this,listContact);
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             contador++;
         }
 
-        favos.remove(contador);
+        favos.remove(contador );
 
         if (myAdapter.veriFavo()){
             myAdapter = new RecyclerViewAdapter((Context) favos, listContact);
@@ -110,10 +113,12 @@ public class MainActivity extends AppCompatActivity {
         myrv.setAdapter(myAdapter);
     }
 
-    public void addbtn(View v){
-        myAdapter = new RecyclerViewAdapter(v.getContext(), favos);
-        myrv.setAdapter(myAdapter);
-        //Intent intent = new Intent(v.getContext(), agregar_contacto.class);
+        public void addbtn(View v){
+        //myAdapter = new RecyclerViewAdapter(v.getContext(), favos);
+        //myrv.setAdapter(myAdapter);
+        Intent intent = new Intent(this, agregar_contacto.class);
+        addedit = new Contacto();
+        startActivityForResult(intent, 1);
         //this.startActivity(intent);
     }
 
@@ -121,6 +126,19 @@ public class MainActivity extends AppCompatActivity {
         EditText barra = (EditText) findViewById(R.id.filter);
         barra.setEnabled(true);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            if (resultCode == Activity.RESULT_OK){
+                Contacto nuevocontacto = data.getParcelableExtra(agregar_contacto.PIYU);
+                listContact.add(nuevocontacto);
+            }
+
+        }
+    }
+
     /*private void Meto(){
         c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.Contacts.DISPLAY_NAME + "ASC");
         //listContact = new ArrayList<String>();
