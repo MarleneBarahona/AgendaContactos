@@ -44,7 +44,8 @@ public class info_contacto extends AppCompatActivity {
             public void onClick(View v) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT,tv_nombre.getText().toString() +"\n"+ tv_telefono.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"CONTACTO" + "\n" + "Nombre: " + tv_nombre.getText().toString() + "\n"
+                        + "Telefono: " + tv_telefono.getText().toString());
                 sendIntent.setType("text/plain");
                 Intent.createChooser(sendIntent,"Share via");
                 startActivity(sendIntent);
