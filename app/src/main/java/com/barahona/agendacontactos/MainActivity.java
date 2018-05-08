@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView myrv;
     RecyclerViewAdapter myAdapter;
     List<Contacto> listContact, favos, buscados;
-    Cursor c;
     Contacto addedit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +39,7 @@ public class MainActivity extends AppCompatActivity {
         favos = new ArrayList<>();
         buscados = new ArrayList<>();
 
-        listContact.add(new Contacto("Isabel Barahona","79676777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Marlene Barahona","77886819",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Alam Brito","77777-0000", R.drawable.icono_contacto));
-        listContact.add(new Contacto("Maria Hernandez","7888-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Raul Murillo","7689-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Equis","77777-0000", R.drawable.icono_contacto));
-        listContact.add(new Contacto("Jose Martinez","77777-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Temperance Brennan","7888-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Pedrito Mengano","7689-7777",R.drawable.icono_contacto));
-        listContact.add(new Contacto("Pompai","77777-0000", R.drawable.icono_contacto));
-
+        mostrarContactos();
 
         myrv = (RecyclerView) findViewById(R.id.Recyclerview_id);
         myAdapter = new RecyclerViewAdapter(this,listContact);
@@ -122,12 +111,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
         public void addbtn(View v){
-        //myAdapter = new RecyclerViewAdapter(v.getContext(), favos);
-        //myrv.setAdapter(myAdapter);
         Intent intent = new Intent(this, agregar_contacto.class);
         addedit = new Contacto();
         startActivityForResult(intent, 1);
-        //this.startActivity(intent);
+
     }
 
     public void buscarbtn(View v){
@@ -146,18 +133,20 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+    public void mostrarContactos(){
+        String aux = "";
+        Cursor tels = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,null,null, null);
+        while (tels.moveToNext())
+        {
+            String name = tels.getString(tels.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String phoneNumber = tels.getString(tels.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-    /*private void Meto(){
-        c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.Contacts.DISPLAY_NAME + "ASC");
-        //listContact = new ArrayList<String>();
-        while (c.moveToNext()){
-            String nombre = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-            String telefono = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
-           // listContact.add("Nombre "+ nombre + "Telefono "+ telefono);
+            if(!(aux.equals(name))){
+                listContact.add(new Contacto(name,phoneNumber,R.drawable.icono_contacto));
+            }
+            aux = name;
         }
-
-    }*/
-
+        tels.close();
+    }
 
 }

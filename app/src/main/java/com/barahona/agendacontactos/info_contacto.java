@@ -15,7 +15,6 @@ public class info_contacto extends AppCompatActivity {
 
     TextView tv_nombre, tv_telefono;
     ImageButton bttncall, bttnshare;
-    String numero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +32,11 @@ public class info_contacto extends AppCompatActivity {
 
         tv_nombre.setText(nombre);
         tv_telefono.setText(telefono);
-        //numero = "22521722";
 
         bttncall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Llamar(telefono);
-                //Intent callintent = new Intent(Intent.ACTION_DIAL);
-                /*callintent.setData(Uri.parse("tel:22521722"));
-                if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-                    return;
-                }*/
-                //startActivity(callintent);
             }
         });
         bttnshare.setOnClickListener(new View.OnClickListener() {

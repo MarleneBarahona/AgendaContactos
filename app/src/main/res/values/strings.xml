@@ -2,11 +2,13 @@
     <string name="app_name">AgendaContactos</string>
     <string name="text_nombre">Nombre</string>
     <string name="textnum_telefono">Telefono</string>
+    <string name="textnum_telefono2">Telefono 2</string>
     <string name="text_agregar">AGREGAR</string>
     <string name="ejemplo_nombre_contacto">Pedrito Hernadez</string>
     <string name="bttn_buscar">BUSCAR</string>
     <string name="text_telefono">Telefono</string>
     <string name="text_contactos">CONTACTOS</string>
     <string name="text_favs">FAVS</string>
+    <string name="et_buscar">Buscar</string>
 
 </resources>

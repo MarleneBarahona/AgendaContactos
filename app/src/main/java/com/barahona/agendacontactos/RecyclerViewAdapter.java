@@ -50,14 +50,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
-        /*holder.bttn_agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mCtx, agregar_contacto.class);
-                mCtx.startActivity(intent);
-            }
-        });*/
-
         //si esta en favs pone la estrellita amarilla
         if(mDatos.get(position).yesorno()){
             holder.fav.setImageResource(R.drawable.starfav);

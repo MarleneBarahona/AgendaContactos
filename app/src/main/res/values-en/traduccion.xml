@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AgendaContacts</string>
+    <string name="text_nombre">Name</string>
+    <string name="textnum_telefono">Phone</string>
+    <string name="textnum_telefono2">Phone 2</string>
+    <string name="text_agregar">ADD</string>
+    <string name="ejemplo_nombre_contacto">Pedrito Hernadez</string>
+    <string name="bttn_buscar">Search</string>
+    <string name="text_telefono">Phone</string>
+    <string name="text_contactos">CONTACTS</string>
+    <string name="text_favs">FAVS</string>
+    <string name="et_buscar">Search</string>
+</resources>

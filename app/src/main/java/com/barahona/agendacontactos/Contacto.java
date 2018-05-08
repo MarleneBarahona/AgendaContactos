@@ -66,10 +66,6 @@ public class Contacto implements Parcelable{
         this.fav = fav;
     }
 
-    public void setTrue(){ fav = true;}
-
-    public void setFalse(){ fav = false;}
-
     public boolean verificarFav(){
         return fav;
     }
