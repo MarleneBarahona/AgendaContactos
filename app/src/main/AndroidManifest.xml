@@ -22,7 +22,6 @@
         </activity>
         <activity android:name=".info_contacto" />
         <activity android:name=".agregar_contacto" />
-        <activity android:name=".buscar_contacto" />
     </application>
 
 </manifest>
