@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class info_contacto extends AppCompatActivity {
 
     TextView tv_nombre, tv_telefono;
-    ImageButton bttncall;
+    ImageButton bttncall, bttnshare;
     String numero;
 
     @Override
@@ -25,6 +25,7 @@ public class info_contacto extends AppCompatActivity {
         tv_nombre = (TextView) findViewById(R.id.tv_nombre_id);
         tv_telefono = (TextView) findViewById(R.id.tv_telefono_id);
         bttncall = (ImageButton) findViewById(R.id.imgbttn_llamar_id);
+        bttnshare = (ImageButton) findViewById(R.id.imgbttn_compartir_id);
 
         Intent intent = getIntent();
         final String nombre = intent.getExtras().getString("Nombre");
@@ -44,6 +45,17 @@ public class info_contacto extends AppCompatActivity {
                     return;
                 }*/
                 //startActivity(callintent);
+            }
+        });
+        bttnshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,tv_nombre.getText().toString() +"\n"+ tv_telefono.getText().toString());
+                sendIntent.setType("text/plain");
+                Intent.createChooser(sendIntent,"Share via");
+                startActivity(sendIntent);
             }
         });
     }

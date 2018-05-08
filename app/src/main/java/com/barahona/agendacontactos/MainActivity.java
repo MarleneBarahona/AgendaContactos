@@ -16,7 +16,9 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         listContact = new ArrayList<>();
         favos = new ArrayList<>();
         buscados = new ArrayList<>();
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         myAdapter = new RecyclerViewAdapter(this,listContact);
         myrv.setLayoutManager(new GridLayoutManager(this,3));
         myrv.setAdapter(myAdapter);
+
         EditText filter = (EditText) findViewById(R.id.filter);
         filter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         if (myAdapter.veriFavo()){
             myAdapter = new RecyclerViewAdapter((Context) favos, listContact);
             myrv.setAdapter(myAdapter);
+            //Toast.makeText(getApplicationContext(), "RECARGA ESTA MADRE", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -99,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         }
         myAdapter.filterList(filteredList);
     }
+
     //Para muestrar todos los contactos
     public void homebtn(View v){
 

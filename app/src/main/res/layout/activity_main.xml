@@ -12,7 +12,8 @@
         android:layout_height="wrap_content">
         <ImageButton
             android:id="@+id/imgbttn_agregar_id"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
             android:scaleType="centerInside"
             android:onClick="addbtn"
@@ -20,20 +21,21 @@
         <Button
             android:id="@+id/bttn_contactos"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:layout_height="wrap_content"
             android:text="@string/text_contactos"
             android:onClick="homebtn"/>
         <Button
             android:id="@+id/bttn_favs"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:text="@string/text_favs"
             android:onClick="favbtn"/>
         <ImageButton
             android:id="@+id/imgbttn_buscar_id"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
             android:scaleType="centerInside"
             android:onClick="buscarbtn"
@@ -46,7 +48,7 @@
         android:enabled="false" />
     <android.support.v7.widget.RecyclerView
         android:scrollbars="vertical"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
         android:id="@+id/Recyclerview_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

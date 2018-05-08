@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -76,6 +77,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     //al dar click al boton de estrella gris cambia a amarilla y lo elimina de favs
                     holder.fav.setImageResource(R.drawable.estrella_gris);
                     ((MainActivity)mCtx).eraseFavourite(mDatos.get(position).getNombre());
+                    Toast.makeText((MainActivity)mCtx, "TOCA EL BOTON FAVS EN CASO DE BUG", Toast.LENGTH_SHORT).show();
                 }
             }
             }
